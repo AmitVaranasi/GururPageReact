@@ -5,7 +5,15 @@
   padding-left: 45%
 }
 .App {
-  text-align: center;
+}
+.stylingbody{
+  margin-left: 10%;
+}
+
+.form{
+  width:50%;
+  margin-right: 15%;
+  margin-bottom:7%;
 }
 
 .App-logo {
@@ -34,6 +42,9 @@
   flex-direction: row;
   flex-wrap: wrap;
   list-style-type: none;
+  margin-left: 10%;
+  margin-top: 1%;
+  
 }
 
 @keyframes App-logo-spin {
@@ -44,3 +55,29 @@
     transform: rotate(360deg);
   }
 }
+
+#arrow {
+  border-right:2px solid black;
+  border-bottom:2px solid black;
+  width:10px;
+  height:10px;
+  transform: rotate(-45deg);
+  margin-top:40px;
+}
+
+ul li {
+  padding-bottom: 10px;list-style:none;
+  }
+  
+  ul li:before{
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+  width: 10px;
+  height: 10px;
+  transform: rotate(-45deg);
+  content: "";
+  display: inline-block;
+  margin-right: 5px;
+  }
+  
+  

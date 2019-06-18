@@ -5,7 +5,7 @@ class Listdisplay extends Component{
       render() {
         return  (
         <div className = "home">
-            <table onClick={()=>this.props.trigger(this.props.element.display_name)} key = {this.props.element.id}>
+            <table onClick={()=>this.props.trigger(this.props.element.display_name,this.props.element.id)} key = {this.props.element.id}>
                 <tboady>
                     <tr>
                     <td>
