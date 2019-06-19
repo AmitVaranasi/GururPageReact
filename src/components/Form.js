@@ -23,7 +23,7 @@ class Form extends React.Component {
     }
     onSubmittest(data){
         console.log("hey i am here")
-        let urlpost = this.props.url.substring(0, this.props.url.length-1);
+        let urlpost = this.props.url;
         this.$.ajax({
             url:urlpost,
             dataType: "json",
