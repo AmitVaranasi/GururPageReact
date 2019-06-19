@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import './App.css';
 import $ from 'jquery';
 import ListDisplay from './ListDisplay'
-import Form from './components/Form'
+import Checkbox from './components/Checkbox'
 import Formcheck from './components/Formcheck'
 
 
@@ -23,6 +23,7 @@ class App extends Component{
       url:"http://guru.southindia.cloudapp.azure.com:8051/knowlake/agriculture/agriculture.models.entities.crop.Crop/5cee1953b116556c730c7667/details/",
       formdisplay:"none",
       formcheck:false,
+      ischecked:true,
 
     }
     this.apicall = this.apicall.bind(this);
@@ -184,6 +185,7 @@ class App extends Component{
             </tr>
           </tbody>
         </table>
+        <Checkbox ischecked = {this.state.ischecked}></Checkbox>
         <ul className ="list">
           {this.state.list.map(number => <li key={number}><button onClick ={()=> this.handleclick(number)}>{number}</button></li>)}
         </ul>

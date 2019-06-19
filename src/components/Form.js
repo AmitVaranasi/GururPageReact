@@ -15,16 +15,36 @@ class Form extends React.Component {
         this.state = {
             url : this.props.url
         }
+        this.onSubmittest = this.onSubmittest.bind(this);
     }
 
     onSubmitButton= (errors, values) => {
         console.log(errors, values);
     }
+    onSubmittest(data){
+        console.log("hey i am here")
+        let urlpost = this.props.url.substring(0, this.props.url.length-1);
+        this.$.ajax({
+            url:urlpost,
+            dataType: "json",
+            type:"POST",
+            data:{data},
+            contentType: "application/json",
+            success:function(data){
+                alert(JSON.stringify(data.value))
+            },
+            error: function (d) {
+                alert("error");
+            }
+        })
+    }
 
     componentDidMount(){
         this.$el = this.$(this.el);
         let please = this.$el;
-        console.log("inside forms.js: "+this.props.url);
+        let url = this.props.url;
+        console.log(this.props.url.substring(0, this.props.url.length-1))
+        console.log("inside forms.js: "+url);
         this.$.ajax(
             {
               url:this.props.url,
@@ -54,21 +74,14 @@ class Form extends React.Component {
               JSON.stringify(values, null, 2));
           return false
         };
-        this.$el.submit(function (){
+        this.$el.submit(() => {
             var values = please.jsonFormValue()
             console.log(JSON.stringify(values));
-            alert(JSON.stringify(values, null, 2))
+            this.onSubmittest(values)
+            
             return false;
         });
     }
-
-    componentWillUnmount() {
-        
-    }
-    componentDidUpdate(){
-        
-    }
-    
     render(){
         return(
             <div className="col-md-6">
