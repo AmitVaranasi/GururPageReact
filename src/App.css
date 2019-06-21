@@ -1,17 +1,19 @@
 .titleBar {
-  background-color: #000;
   display: block;
   color: #fff;
-  padding-left: 45%
+  padding-left: 40%
 }
 .App {
 }
 .stylingbody{
   margin-left: 10%;
+  z-index: 100;
+  position: relative;
+top: 13em;
 }
 
 .form{
-  width:50%;
+  width:80%;
   margin-right: 15%;
   margin-bottom:7%;
 }
@@ -37,6 +39,22 @@
   color: #61dafb;
 }
 
+input{
+  border-radius:8px;
+  outline: none;
+  border:none;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.16);
+  
+}
+.Header{
+  background-color: #039073;
+  height: 200px;
+  width: 100%;
+  z-index: 0;
+  position: absolute;
+  top: 0;
+
+}
 .list{
   display: flex;
   flex-direction: row;
@@ -46,7 +64,6 @@
   margin-top: 1%;
   
 }
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -54,6 +71,47 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+ul li button {
+  position: relative;
+  background-color: transparent;
+  border: none;
+  font-size: 14px;
+  color: #FFFFFF;
+  padding: 10px 10px 10px 10px;
+  text-align: center;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius:8px;
+}
+
+ul li button:after {
+  content: "";
+  background: #90EE90;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px!important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s;
+}
+
+ul li button:focus{
+  outline:none;
+  }
+  
+
+ul li button:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
 }
 
 #arrow {
@@ -78,6 +136,9 @@ ul li {
   content: "";
   display: inline-block;
   margin-right: 5px;
+  }
+  .table{
+    padding-top: 2%;
   }
   
   

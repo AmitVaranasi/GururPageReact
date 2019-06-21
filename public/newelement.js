@@ -27,7 +27,7 @@ JSONForm.fieldTypes['help_custom'] = {
                                     dropDown.removeClass('hidden');
                                     dropDown.html("");
                                     data.map((suggestion,i)=>{
-                                      dropDown.append(`<p class="suggestion123" onclick="pclick(this)">${suggestion.display_name}::${suggestion.id}<span style="color:white"></span></p>`)
+                                      dropDown.append(`<p class="suggestion123" onclick="pclick(this)">${suggestion.display_name_form}<span style="color:white"></span></p>`)
                                     })
                                     }
                             }

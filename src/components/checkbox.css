@@ -3,3 +3,13 @@
     flex-direction: row;
     margin-left: 10%
 }
+#scales{
+    width:17px;
+    height:17px;
+    margin-left: 50px;
+}
+#horns{
+    width:17px;
+    height:17px;
+
+}

@@ -4,6 +4,7 @@ import $ from 'jquery';
 import ListDisplay from './ListDisplay'
 import Checkbox from './components/Checkbox'
 import Formcheck from './components/Formcheck'
+import logo from './Guru logo_small.svg'
 
 
 class App extends Component{
@@ -23,6 +24,7 @@ class App extends Component{
       formdisplay:"none",
       formcheck:false,
       ischecked:true,
+      add_url:""
 
     }
     this.apicall = this.apicall.bind(this);
@@ -30,23 +32,30 @@ class App extends Component{
     this.handleclick = this.handleclick.bind(this);
     this.apicall("");
   }
-   async triggerapp(display_name,id){
+   async triggerapp(display_name,id,class_name){
      console.log("this is id length: "+id.length);
     await this.setState({
       list:[...this.state.list,{key:display_name,baseurl:this.state.baseurl,path:id}],
       rows:[],
-      path:id,
+      path:id+'?q=',
       domain:display_name,
       inputfield:''
     
     })
-    if(id.length === 83){
+    if(this.state.list.length === 4){
       console.log(`hello i am ${display_name}`)
       await this.setState({
+        path:id,
         state:false,
         formcheck:true,
         formdisplay:"block"
       })
+    }
+    if (typeof class_name !== 'undefined'){
+      await this.setState({
+        add_url:class_name
+      })
+      console.log(this.state.add_url)
     }
     
   //   if(display_name === "Crop"){
@@ -113,11 +122,16 @@ class App extends Component{
     })
   }
   async handleclick(e){
-    if(e.path.length!==83){
+    let search = "";
+    if(e.path !== "/list_domains?q="){
+      search = "?q=";
+    }
+    if(this.state.list.length<=4){
+      console.log(this.state.list.length)
     await this.setState({
       inputfield:'',
       rows:[],
-      path:e.path,
+      path:e.path+search,
       formcheck:false,
       state:true
     })
@@ -196,14 +210,16 @@ class App extends Component{
   render(){
     return(
       <div className="App">
-      
+      <div className="Header">
       <table className="titleBar">
           <tbody>
             <tr>
-              
-              <td width="8"/>
               <td>
-                <h1>entity ingestion</h1>
+                <img src ={logo} style = {{width:70,height:70,paddingTop:12}}/>
+              </td>
+              <td width="8" />
+              <td >
+                <h1>Guru Knowledge</h1>
               </td>
             </tr>
           </tbody>
@@ -211,7 +227,7 @@ class App extends Component{
         <Checkbox ischecked = {this.state.ischecked}></Checkbox>
         <ul className ="list">
           {this.state.list.map(number => <li key={number.key}><button onClick ={()=> this.handleclick(number)}>{number.key}</button></li>)}
-        </ul>
+        </ul></div>
        <div className = "stylingbody">
        <div className = "body">
         
@@ -224,7 +240,7 @@ class App extends Component{
           paddingLeft: 16,
           
         }}onChange={this.searchChangeHandler.bind(this)} value = {this.state.inputfield} disabled = {this.state.inputdisable}  placeholder="search here"/>
-        {this.state.rows}
+        <div className="table">{this.state.rows}</div>
         </div>
         <div className = "form" >
         {console.log(this.state.formcheck)}
