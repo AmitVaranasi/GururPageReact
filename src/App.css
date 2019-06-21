@@ -61,7 +61,7 @@ input{
   flex-wrap: wrap;
   list-style-type: none;
   margin-left: 10%;
-  margin-top: 1%;
+  margin-top: 0.5%;
   
 }
 @keyframes App-logo-spin {
@@ -139,6 +139,15 @@ ul li {
   }
   .table{
     padding-top: 2%;
+  }
+  .addbutton{
+    margin-top:1%;
+    background-color: rgb(167, 162, 162);
+    border:none;
+    width:30px;
+    height:30px;
+    font-size: 14px;
+    border-radius: 5px;
   }
   
   

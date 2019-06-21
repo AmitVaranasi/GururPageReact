@@ -24,7 +24,8 @@ class App extends Component{
       formdisplay:"none",
       formcheck:false,
       ischecked:true,
-      add_url:""
+      add_url:"",
+      buttonvisibility:"none"
 
     }
     this.apicall = this.apicall.bind(this);
@@ -58,36 +59,13 @@ class App extends Component{
       console.log(this.state.add_url)
     }
     
-  //   if(display_name === "Crop"){
-  //     await  this.setState({
-  //       path:`${this.state.path}agriculture.models.entities.crop.Crop/`,
-  //       search:'list_entities/?q=',
-  //       formdisplay:"none"
-  //     })
-  //   }
-  //   else if(display_name === "Agriculture"){
-  //    await  this.setState({
-  //       path:`${display_name.toLowerCase()}/`,
-  //       search:'list_entity_types?q=',
-  //       formdisplay:"none"
-  //     })     
-  // }
-  //   else {
-  //     await  this.setState({
-  //       path:`agriculture/agriculture.models.entities.crop.Crop/`,
-  //       search:`${id}/details/`,
-  //       state:false,
-  //       url:this.state.baseurl+`agriculture/agriculture.models.entities.crop.Crop/`+`${id}/details/`,
-  //       formdisplay:"block",
-  //       formcheck:true
-  //     })  
-  //   }
+  
   console.log("this is url: "+this.state.url)  
   this.apicall("")
   }
 
   
-  apicall(searchterm){
+  async apicall(searchterm){
     
     const urlstring = this.state.baseurl+this.state.path+searchterm;
     console.log(urlstring)
@@ -120,6 +98,8 @@ class App extends Component{
         console.error("Failed to fetch data")
       }
     })
+
+    
   }
   async handleclick(e){
     let search = "";
@@ -140,72 +120,42 @@ class App extends Component{
            const list = this.state.list.pop();
          }
        }
+       if(this.state.list.length<4){
+       this.apicall("")}
+       else{
 
+       }
     
-  }
-  this.apicall("")
-    // console.log(`i am ${e}`);
-    // if(this.state.list.length===2){
-    //   const list = this.state.list.pop();}
-    // while(this.state.list[this.state.list.length-1] !== e){
-    //   if(this.state.list.length>1){
-    //     const list = this.state.list.pop();
-    //   }
-    // }
-    // if(e === "Domain"){
-      
-    //   this.setState({
-    //     list:this.state.list,
-    //     rows:[],
-    //     path:`list_domains/`,
-    //     search:'?q=',
-    //     domain:e,
-    //     schema:{},
-    //     state:true,
-    //     formdisplay:"none",
-    //     formcheck:false
-    //   },()=>this.apicall(""))
-      
-    // }else if(e === "Agriculture"){
-    //   this.setState({
-    //     list:this.state.list,
-    //     rows:[],
-    //     path:`${e.toLowerCase()}/`,
-    //     search:'list_entity_types?q=',
-    //     domain:e,
-    //     schema:{},
-    //     state:true,
-    //     formdisplay:"none",
-    //     formcheck:false
-    //   },()=>this.apicall(""))
-      
-    // }else if(e === "Crop"){
-    //   this.setState({
-    //     list:this.state.list,
-    //     rows:[],
-    //     path:`agriculture/`,
-    //     search:'agriculture.models.entities.crop.Crop/list_entities/?q=',
-    //     domain:e,
-    //     schema:{},
-    //     state:true,
-    //     formdisplay:"none",
-    //     formcheck:false
-    //   },()=>this.apicall(""))
-    // }
-    // else{
-    //   console.log("do nothing");
-    // }
+  }   
   }
 
-    searchChangeHandler(event) {
-    /* await this.setState(({
-      inputfield:event.target.value,
-    }))*/
-     this.setState({ inputfield: event.target.value });
+    async searchChangeHandler(event) {
+    
+      this.setState({ inputfield: event.target.value });
     
     console.log(this.state.inputfield)
-    const searchTerm = event.target.value      
+    const searchTerm = event.target.value
+    if(this.state.rows.length === 0){
+      await this.setState({
+        buttonvisibility:"block"
+      })
+    }
+    else{
+      await this.setState({
+        buttonvisibility:"none"
+      })
+    }      
     this.apicall(searchTerm);
+  }
+  async onAddbuttonclick(){
+    await this.setState({
+      path:this.state.add_url,
+        state:false,
+        formcheck:true,
+        formdisplay:"block",
+        buttonvisibility:"none",
+        inputfield:''
+    })
   }
   render(){
     return(
@@ -240,7 +190,11 @@ class App extends Component{
           paddingLeft: 16,
           
         }}onChange={this.searchChangeHandler.bind(this)} value = {this.state.inputfield} disabled = {this.state.inputdisable}  placeholder="search here"/>
+        <button className = "addbutton" style ={{display:this.state.buttonvisibility}} onClick = {this.onAddbuttonclick.bind(this)}>
+          + 
+        </button>
         <div className="table">{this.state.rows}</div>
+        
         </div>
         <div className = "form" >
         {console.log(this.state.formcheck)}
