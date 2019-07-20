@@ -1,21 +1,32 @@
+body{
+  font-family:'Circular Std';
+}
+
+
+
+
 .titleBar {
-  display: block;
+  display: inline-block;
   color: #fff;
-  padding-left: 40%
+  font-family:'Circular Std';
+  padding-left: 10%
 }
 .App {
 }
 .stylingbody{
-  margin-left: 10%;
+  background-color: #f2f2f2;
   z-index: 100;
   position: relative;
-top: 13em;
+  top: 13em;
+  height: auto;
+  font-family:'Circular Std';
 }
 
 .form{
   width:80%;
   margin-right: 15%;
   margin-bottom:7%;
+  font-family:'Circular Std';
 }
 
 .App-logo {
@@ -33,13 +44,14 @@ top: 13em;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  font-family:'Circular Std';
 }
 
 .App-link {
   color: #61dafb;
 }
 
-input{
+input{  
   border-radius:8px;
   outline: none;
   border:none;
@@ -77,7 +89,7 @@ ul li button {
   position: relative;
   background-color: transparent;
   border: none;
-  font-size: 14px;
+  font-size: 20px;
   color: #FFFFFF;
   padding: 10px 10px 10px 10px;
   text-align: center;
@@ -87,6 +99,8 @@ ul li button {
   overflow: hidden;
   cursor: pointer;
   border-radius:8px;
+  font-family:'Circular Std';
+  text-transform: capitalize;
 }
 
 ul li button:after {
@@ -100,6 +114,7 @@ ul li button:after {
   margin-top: -120%;
   opacity: 0;
   transition: all 0.8s;
+  font-family:'Circular Std';
 }
 
 ul li button:focus{
@@ -115,8 +130,8 @@ ul li button:active:after {
 }
 
 #arrow {
-  border-right:2px solid black;
-  border-bottom:2px solid black;
+  border-right:2px solid rgb(255, 255, 255);
+  border-bottom:2px solid rgb(255, 255, 255);
   width:10px;
   height:10px;
   transform: rotate(-45deg);
@@ -128,8 +143,8 @@ ul li {
   }
   
   ul li:before{
-  border-right: 2px solid black;
-  border-bottom: 2px solid black;
+  border-right: 2px solid rgb(255, 255, 255);
+  border-bottom: 2px solid rgb(255, 255, 255);
   width: 10px;
   height: 10px;
   transform: rotate(-45deg);
@@ -149,5 +164,34 @@ ul li {
     font-size: 14px;
     border-radius: 5px;
   }
-  
-  
+  .loader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 22%;
+    margin-left: 47%;
+  }
+  .body{
+    z-index: 150;
+    margin-left: 10%;
+    position: relative;
+top: -1.5em;
+font-family:'Circular Std';
+  }
+  .tablestyling{
+    margin-top: 15px;
+    z-index: 150;
+    margin-left: 10%;
+    border-radius:8px;
+  outline: none;
+  border:none;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.16);
+  width:45%;
+  background-color: #FFFFFF;
+  padding-bottom: 5%;
+  }
+.version{
+  padding-left:60%;
+  color:#FFFFFF;
+
+  }

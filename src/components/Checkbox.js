@@ -17,15 +17,15 @@ class Checkbox extends Component{
     render(){
         console.log("hello this is a test");
         return(
-            <div className="checkbox1">
-                <div>
+            <div className="checkbox1" style = {{display:"none"}}>
+                <div className = "entity">
                     <input type="checkbox" id="scales" name="scales" checked = {this.state.ischecked} onChange = {this.toggle}
                         style = {{margin:'3px'}}
                     />Entity
                     
                 </div>
 
-                <div>
+                <div className = "Knowledge">
                 <input type="checkbox" id="horns" name="horns" checked = {!this.state.ischecked} onChange = {this.toggle}
                     style = {{margin:'3px'}}
                 />Knowledge

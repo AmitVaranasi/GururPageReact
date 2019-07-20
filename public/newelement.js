@@ -3,7 +3,7 @@ JSONForm.fieldTypes['help_custom'] = {
     'fieldtemplate': true
   };
   JSONForm.fieldTypes['autocomplete'] = {
-    template:'<div><input type="text" class="form-control" name=<%=node.name%> autocomplete="off" /><div class="dropdown_suggestion hidden"></div></div>',
+    template:'<div><input type="text" class="form-control" name=<%=node.name%> value = <%=node.value%>  <div class="dropdown_suggestion hidden"></div></div>',
     inputfield: true,
     fieldtemplate: true,
     onInsert: function(evt, node){

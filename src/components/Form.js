@@ -13,7 +13,8 @@ class Form extends React.Component {
         this.$ = $; 
         this._ = _;
         this.state = {
-            url : this.props.url
+            url : this.props.url,
+            display_name:this.props.display_name
         }
         this.onSubmittest = this.onSubmittest.bind(this);
     }
@@ -24,14 +25,14 @@ class Form extends React.Component {
     onSubmittest(data){
         console.log("hey i am here")
         let urlpost = this.props.url;
+        console.log(urlpost)
         this.$.ajax({
             url:urlpost,
-            dataType: "json",
             type:"POST",
-            data:{data},
+            data:data,
             contentType: "application/json",
             success:function(data){
-                alert(JSON.stringify(data.value))
+                alert(JSON.stringify(data))
             },
             error: function (d) {
                 alert("error");
@@ -62,6 +63,7 @@ class Form extends React.Component {
                 //     }
                 //   }
                 // }
+                
                 please.jsonForm(data);
                 
               }
@@ -77,16 +79,18 @@ class Form extends React.Component {
         this.$el.submit(() => {
             var values = please.jsonFormValue()
             console.log(JSON.stringify(values));
-            this.onSubmittest(values)
+            this.onSubmittest(JSON.stringify(values))
             
             return false;
         });
     }
     render(){
         return(
-            <div className="col-md-6">
-                <h1>JSON Form for expert </h1>
-                <form meathod = "POST" ref={el => {this.el = el;}}></form>
+            <div className="col2">
+                <h1>{this.state.display_name}</h1>
+                <div className = "stylingform" >
+                <form method = "POST" ref={el => {this.el = el;}} ></form>
+                </div>
             </div>
         );
     }

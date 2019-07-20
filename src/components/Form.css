@@ -4,3 +4,10 @@
     border: 1px solid blue;
     padding: 13px 5px;
 }
+.stylingform{
+    display: block;
+
+}
+.col2{
+    padding-left: 5%;
+}

@@ -6,20 +6,18 @@ class Formcheck extends Component{
         super(props);
         this.state = {
             state:this.props.state,
-            url:this.props.url
+            url:this.props.url,
+            display_name:this.props.display_name
         }
         console.log(this.state.state);
     }
     render(){
-        console.log("hello");
         if(this.props.state){
-            console.log(console.log("hello if"))
             return(
-                <Form url = {this.props.url}/>
+                <Form url = {this.props.url} display_name= {this.props.display_name}/>
             )
         }
         else{
-            console.log("hello else")
             return(<div></div>);
         }
     }

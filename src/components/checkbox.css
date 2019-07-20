@@ -1,7 +1,8 @@
 .checkbox1{
-    display:flex;
-    flex-direction: row;
-    margin-left: 10%
+    display:inline-block;
+    vertical-align:top;
+    padding-top: 31px;
+    padding-left: 40px;
 }
 #scales{
     width:17px;
@@ -12,4 +13,10 @@
     width:17px;
     height:17px;
 
+}
+.entity{
+    display:inline-block;
+}
+.Knowledge{
+    display:inline-block;
 }

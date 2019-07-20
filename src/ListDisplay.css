@@ -1,10 +1,27 @@
-.home table {background: #ffffff;
-    color: #000000; 
+body{
+
+    font-family: 'Circular Std';
+    font-weight: 300;
+
 }
 
-.home table:hover{
-background: #a0a0a0;
+.home table {
+    color: #000000;
+    padding:10px;
+}
+
+.home:hover{
+background: #f6f6f6;
  color: #000000;
+
+}
+
+.home{
+    background-color: #ffffff;
+    padding:4px;
+    font-family: 'Circular Std';
+    font-weight: 300;
+    padding-left: 10px;
 
 }
 
@@ -20,3 +37,17 @@ background: #a0a0a0;
      color: #000000;
     
     }
+.listelement{
+    padding: 10px;
+    font-size: 16px;
+    height: 45px;
+    border-width: 1.5px;
+    border-color: #0c0c0c;
+
+}
+.home:nth-child(odd){
+    
+    
+}
+
+.home tr:nth-child(even){background-color: grey}
